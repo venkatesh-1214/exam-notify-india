@@ -1,20 +1,29 @@
-# ExamNotify India
+# ExamNotify India 🇮🇳
 
-A government exam notification platform built using React.js and Firebase.
+A full-stack web application that provides real-time government exam notifications.
 
 ## 🚀 Features
-- Latest government job notifications
-- Search functionality
-- Save jobs feature
-- Real-time database
+- 🔍 Search government jobs
+- 📄 Detailed job information
+- ❤️ Save jobs for later
+- 🔄 Real-time updates using Firebase
 
-## 🛠️ Tech Stack
-- React.js
-- Firebase
-- Firestore
+## 🛠 Tech Stack
+- Frontend: React.js
+- Backend: Firebase
+- Database: Firestore
+- Deployment: Netlify
 
 ## 🌐 Live Demo
 https://examnotifyindia.netlify.app/
+
+## 📸 Screenshots
+(Add screenshots here)
+
+## ⚙️ Installation
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm start`
 
 ## 👨‍💻 Author
 Venkatesh
