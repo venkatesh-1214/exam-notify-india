@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Saved Jobs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>❤️ Saved Jobs</h2>
+  <a href="index.html">⬅ Back</a>
+</header>
+
+<div class="container">
+  <div id="savedList"></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyDsX8CUvpPJngRZG2Dw4APCb7ISwd1GumM",
+  authDomain: "examnotifyindia.firebaseapp.com",
+  projectId: "examnotifyindia",
+  storageBucket: "examnotifyindia.firebasestorage.app",
+  messagingSenderId: "109226861144",
+  appId: "1:109226861144:web:28325a323fd6b04cbae02d"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+firebase.auth().onAuthStateChanged(user => {
+  if (!user) {
+    window.location.href = "login.html?redirect=saved.html";
+  } else {
+    loadSavedJobs(user);
+  }
+});
+
+function loadSavedJobs(user) {
+  const container = document.getElementById("savedList");
+  container.innerHTML = "";
+
+  db.collection("users")
+    .doc(user.uid)
+    .collection("savedJobs")
+    .get()
+    .then(snapshot => {
+
+      if (snapshot.empty) {
+        container.innerHTML = "<p>No saved jobs ❌</p>";
+        return;
+      }
+
+      snapshot.forEach(doc => {
+        const job = doc.data();
+
+        const div = document.createElement("div");
+        div.className = "job-card";
+
+        div.innerHTML = `
+          <h3>${job.title}</h3>
+          <p>${job.lastDate}</p>
+          <button onclick="deleteJob('${doc.id}')">❌ Remove</button>
+        `;
+
+        container.appendChild(div);
+      });
+    });
+}
+
+function deleteJob(id) {
+  const user = firebase.auth().currentUser;
+
+  db.collection("users")
+    .doc(user.uid)
+    .collection("savedJobs")
+    .doc(id)
+    .delete()
+    .then(() => loadSavedJobs(user));
+}
+</script>
+
+</body>
+</html>

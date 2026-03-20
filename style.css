@@ -1,0 +1,124 @@
+/* RESET */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: white;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h2 {
+  font-size: 18px;
+}
+
+header a {
+  color: white;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* CONTAINER */
+.container {
+  padding: 15px;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* SEARCH BOX */
+#searchInput {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* JOB CARD */
+.job-card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* TEXT */
+.job-card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.job-card p {
+  font-size: 13px;
+  color: gray;
+}
+
+/* BUTTONS */
+button {
+  padding: 8px 10px;
+  margin-top: 10px;
+  margin-right: 8px;
+  border: none;
+  background: #4facfe;
+  color: white;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* LOGIN PAGE */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.login-box {
+  background: white;
+  padding: 25px;
+  width: 90%;
+  max-width: 320px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header div {
+    margin-top: 8px;
+  }
+
+  .job-card {
+    padding: 12px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 8px;
+  }
+}

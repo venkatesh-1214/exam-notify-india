@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ExamNotify India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>📢 ExamNotify India</h2>
+  <div>
+    <a href="#" onclick="goToSaved()">❤️ Saved</a>
+    <a href="#" onclick="logout()">🚪 Logout</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="🔍 Search exams..."
+    onkeyup="filterJobs()"
+    style="width:100%; padding:10px; margin-bottom:15px;"
+  >
+<button onclick="enableNotifications()">🔔 Enable Notifications</button>
+  <div id="jobList"></div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
